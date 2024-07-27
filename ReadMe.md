@@ -1,6 +1,7 @@
-# Pipline for evaluating the permiability of cells analyzed by single-cell proteomics  
+# Limiting the impact of protein leakage in single-cell proteomics
+## Pipline for evaluating the permiability of cells analyzed by single-cell proteomics  
 
- ## **Preprint:** Leduc A, Xu Y, Shipkovenska G, Dou Z, Slavov N, [Limiting the impact of protein leakage in single-cell proteomics](https://www.biorxiv.org/content/10.1101/2024.07.28.605378v1), *bioRxiv*, doi: [10.1101/2024.07.28.605378](https://doi.org/10.1101/2024.07.28.605378)
+* **Preprint:** Leduc A, Xu Y, Shipkovenska G, Dou Z, Slavov N, [Limiting the impact of protein leakage in single-cell proteomics](https://www.biorxiv.org/content/10.1101/2024.07.28.605378v1), *bioRxiv*, doi: [10.1101/2024.07.28.605378](https://doi.org/10.1101/2024.07.28.605378)
 
 * [Data Website](https://scp.slavovlab.net/Leduc_et_al_2024)
 
