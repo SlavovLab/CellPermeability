@@ -1,5 +1,7 @@
 # Limiting the impact of protein leakage in single-cell proteomics
 
+This repository outlines the work completed as part of the study "Limiting the impact of protein leakage in single-cell proteomics" (Leduc et al. 2024).
+
 ## Tool for identifying permeablized cells in single-cell proteomics studies
 
 If performing a single cell proteomics study, the use permeability stain such as Sytox Green can be helpful for excluding damage cells from downstream analysis. If permeablized cells were not excluded from the sample preparation process, they can still be identified computationally to avoid artifacts in your analysis. To facilitate this task, we developed a classifyer based on proteomic profiles from experimental data from intact and permeablized cells.
