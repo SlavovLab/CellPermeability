@@ -7,6 +7,17 @@ library(HGNChelper)
 library(seqinr)
 library(ComplexHeatmap)
 library(Hmisc)
+library(stringr)
+library(sva)
+library(dplyr)
+library(ggplot2)
+library(ggpointdensity)
+library(viridis)
+library(ggpubr)
+library(dplyr)
+library(matrixStats)
+library(reshape2)
+library(stringr)
 
 TLS <- function(vect1,vect2){
 

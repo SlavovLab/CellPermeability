@@ -1,44 +1,22 @@
+## For getting file path
+# install.packages("rstudioapi")
+library(rstudioapi)
+
+# Source all the functions and packages needed
+source(paste0(dirname(rstudioapi::getActiveDocumentContext()$path),'/func.R'))
+
+
+
+
 # Read data
+Frozen_anno <- read.csv('https://drive.google.com/uc?export=download&id=18YD1Cc9fz-UKlQwZWKhcdpX5ASrcUG5L')
+Frozen_data <- read.csv('https://drive.google.com/uc?export=download&id=1uuSxzHfgPcNNYjpaAZIVPQ48i5R-6Gmq',row.names = 1,header = T)
 
-Frozen_anno <- read.csv('/Users/andrewleduc/Desktop/Projects/AliveDead/Frozen/celltype_annotations.csv')
-Frozen_data <- read.csv('/Users/andrewleduc/Desktop/Projects/AliveDead/Frozen/protein.csv',row.names = 1,header = T)
+Fresh_anno <- read.csv('https://drive.google.com/uc?export=download&id=1XEn5JY8Vmd_mSQmHXMUt0pe6_3wtGadm')
+Fresh_data <- read.csv('https://drive.google.com/uc?export=download&id=1-f-gtu8cdC4OuWphLIxpJzLQ8AWDILU2',row.names = 1,header = T)
 
 
-Fresh_anno <- read.csv('/Users/andrewleduc/Desktop/Projects/AliveDead/Fresh/celltype_annotations.csv')
-Fresh_meta <- read.csv('/Users/andrewleduc/Desktop/Projects/AliveDead/Fresh/meta.csv')
-Fresh_data <- read.csv('/Users/andrewleduc/Desktop/Projects/AliveDead/Fresh/protein.csv',row.names = 1,header = T)
 
-colnames(Fresh_anno)[1] <- 'ID'
-Fresh_anno <- Fresh_anno %>% left_join(Fresh_meta, by = 'ID')
-
-test <- test %>% left_join(Frozen_anno, by = ('ID'))
-test$Cell_type[test$Cell_type == 'Ciliated'] <- 'Club'
-test$Cell_type[test$cluster == '1'] <- 'Fibroblast'
-test$Cell_type[test$cluster == '6'] <- 'Chondrocyte'
-test <- test %>% filter(is.na(Cell_type)== F)
-test <- test %>% filter(is.na(dead)== F)
-
-ggplot(test,aes(x = umap_1,y = umap_2,color = Cell_type))+geom_point() + theme_classic()
-ggplot(test,aes(x = umap_1,y = umap_2,color = dead))+geom_point() + theme_classic() +
-  scale_color_manual(values = c('gray60', 'black'))
-
-test2 <- test2 %>% left_join(Fresh_anno, by = ('ID'))
-test2$Cell_type[test2$Cell_type == 'Ciliated'] <- 'Club'
-test2$Cell_type[test2$cluster == '2'] <- 'Club'
-test2$Cell_type[test2$cluster == '6'] <- 'Chondrocyte'
-test2 <- test2 %>% filter(is.na(Cell_type)== F)
-test2 <- test2 %>% filter(is.na(dead)== F)
-
-ggplot(test2,aes(x = umap_1,y = umap_2,color = Cell_type))+geom_point() + theme_classic()
-
-test2$dead <- 'no'
-test2$dead[test2$Stain_Diameter >10] <- 'yes'
-
-test2$Cell_type[test2$cluster == '3'] <- 'Club'
-test2$Cell_type[test2$cluster == '6'] <- 'Chondrocyte'
-
-ggplot(test2,aes(x = umap_1,y = umap_2,color = dead))+geom_point() + theme_classic()+
-  scale_color_manual(values = c('gray60', 'black'))
 
 
 
@@ -286,6 +264,45 @@ both_spec <- as.data.frame(both_spec)
 
 ggplot(both_spec, aes(x = Mouse_Primary_Cells,y = Human_CellLines)) + geom_point() + dot_plot +
   ggtitle('Cor = 0.50')
+
+
+
+
+
+
+
+####
+# test <- test %>% left_join(Frozen_anno, by = ('ID'))
+# test$Cell_type[test$Cell_type == 'Ciliated'] <- 'Club'
+# test$Cell_type[test$cluster == '1'] <- 'Fibroblast'
+# test$Cell_type[test$cluster == '6'] <- 'Chondrocyte'
+# test <- test %>% filter(is.na(Cell_type)== F)
+# test <- test %>% filter(is.na(dead)== F)
+# 
+# ggplot(test,aes(x = umap_1,y = umap_2,color = Cell_type))+geom_point() + theme_classic()
+# ggplot(test,aes(x = umap_1,y = umap_2,color = dead))+geom_point() + theme_classic() +
+#   scale_color_manual(values = c('gray60', 'black'))
+# 
+# test2 <- test2 %>% left_join(Fresh_anno, by = ('ID'))
+# test2$Cell_type[test2$Cell_type == 'Ciliated'] <- 'Club'
+# test2$Cell_type[test2$cluster == '2'] <- 'Club'
+# test2$Cell_type[test2$cluster == '6'] <- 'Chondrocyte'
+# test2 <- test2 %>% filter(is.na(Cell_type)== F)
+# test2 <- test2 %>% filter(is.na(dead)== F)
+# 
+# ggplot(test2,aes(x = umap_1,y = umap_2,color = Cell_type))+geom_point() + theme_classic()
+# 
+# test2$dead <- 'no'
+# test2$dead[test2$Stain_Diameter >10] <- 'yes'
+# 
+# test2$Cell_type[test2$cluster == '3'] <- 'Club'
+# test2$Cell_type[test2$cluster == '6'] <- 'Chondrocyte'
+# 
+# ggplot(test2,aes(x = umap_1,y = umap_2,color = dead))+geom_point() + theme_classic()+
+#   scale_color_manual(values = c('gray60', 'black'))
+# 
+# 
+
 
 
 
