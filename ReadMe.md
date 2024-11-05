@@ -22,7 +22,7 @@ The output is a vector length number single cells. Each value is the probability
 
 To reproduce the analysis from the paper, download this repository and run the scripts described below. The order of analysis is listed below, however users can start from any point in the processing pipline.
 
-All the data is conveniently read in from google drive links, so no data downloading is needed! Just download and run.
+All the data is conveniently read in from google drive links, so no data downloading is needed, just clone scripts and run analysis!
 
 ### Preprocess
 
