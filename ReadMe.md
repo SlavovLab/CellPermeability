@@ -13,7 +13,7 @@ devtools::install_github("https://github.com/Andrew-Leduc/QuantQC")
 library(QuantQC)
 ```
 
-Once the package is installed, the relevant function is `FindPermeableCells()`. The input is a matrix (Protein X single cells) with Uniprot identifiers on the rownames. An optional argument is the species. The default is `species = "Mouse"`. Human is also supported, `species = "Human"`.
+Once the package is installed, the relevant function is `FindPermeableCells()`. The input is a matrix (Protein X single cells) with Uniprot identifiers on the rownames. The Protein X single cells matrix must be normalized to log2 relative fold changes. That is first normalizing for cell size, dividing columns by median, then normalizing to relative levels, dividing rows by mean, then log2 transforming values. An optional argument is the species. The default is `species = "Mouse"`. Human is also supported, `species = "Human"`.
 
 The output is a vector length number single cells. Each value is the probability of permeablization. The distribution may differ depending on the data set but generally values observed probabilities above 0.2 were observed as permeable cells. 
 
